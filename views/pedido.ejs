@@ -1,0 +1,32 @@
+<%- include ('partials/navbar.ejs') %>
+<%- include ('partials/header.ejs') %>
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="card-header">
+                <h1>Lista de Pedidos</h1>
+            </div>
+            <div class="card-body">
+                <table class="table table-bordered table-hover">
+                    <thead class="table-dark">
+                        <tr>
+                            <th></th>
+                            <th>ID cliente:</th>
+                            <th>Produto:</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!--Chamando o Array de objetos-->
+                        <% pedido.forEach(item => { %>
+                            <tr>
+                                <td style="text-align: center;"><img src="/images/carrinho.png" alt="Pedido" width="45"; height="45"></td>
+                                <td><%= item.id %></td>
+                                <td><%= item.produto %></td>
+                            <tr>
+                            <% }) %>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <%- include ('partials/footer.ejs') %>

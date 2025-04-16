@@ -1,0 +1,27 @@
+{
+  "name": "meu_site_js",
+  "version": "1.0.0",
+  "main": "index.js",
+  "notes": "-> start npx nodemon index.js é o comando para o npm start funcionar",
+  "scripts": {
+    "start": "npx nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "clean": "rm -rf node_modules package-lock.json && npm install",
+    "reset": "npm cache verify && rm -rf node_modules && npm ci"
+  },
+  "repository": {
+    "type": "git",
+    "url": "erlonviana"
+  },
+  "keywords": [
+    "site"
+  ],
+  "author": "Erlon Viana dos Santos",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^5.1.0"
+  },
+  "type": "module"
+}
