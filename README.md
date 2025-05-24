@@ -11,7 +11,7 @@ Este é um projeto de exemplo que implementa as operações básicas de CRUD (Cr
 
 ## Funcionalidades
 
-- Cadastro de registros
-- Listagem de registros
-- Edição de registros
-- Exclusão de registros
+- Cadastro de clientes
+- Listagem de clientes
+- Edição de clientes
+- Exclusão de clientes
