@@ -1,7 +1,31 @@
 <%- include ('partials/navbar.ejs') %>
 <%- include ('partials/header.ejs') %>
 <body>
-    
+    <div class="container">
+        <div class="card">
+            <div class="card-header">
+                <h1>Cadastrar cliente</h1>
+            </div>
+            <div class="card-body">
+                <form method="POST" action="/cliente/new">
+                    <label>Nome do cliente:</label>
+                    <input type="text" name="nome" id="nome" placeholder="Insira o nome do cliente" class="form-control" required>
+
+                    <label>CPF do cliente:</label>
+                    <input type="text" name="cpf" id="cpf" placeholder="Insira o CPF do cliente" class="form-control" required>
+
+                    <label>Endereço do cliente:</label>
+                    <input type="text" name="endereco" id="endereco" placeholder="Insira o endereço do cliente" class="form-control" required>
+                    <br>
+                    <Button class="btn btn-success">Cadastrar</Button>
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
 
     <div class="container">
         <div class="card">
@@ -13,17 +37,23 @@
                     <thead class="table-dark">
                         <tr>
                             <th></th>
-                            <th>ID:</th>
                             <th>Nome:</th>
+                            <th>CPF:</th>
+                            <th>Endereço:</th>
+                            <th>Edição:</th>
+                            <th>Exclusão:</th>
                         </tr>
                     </thead>
                     <tbody>
                         <!--Chamando o Array de objetos-->
-                        <% cliente.forEach(item => { %>
+                        <% clientes.forEach(cliente => { %>
                             <tr>
                                 <td style="text-align: center;"><img src="/images/cliente.png" alt="Pedido" width="45"; height="45"></td>
-                                <td><%= item.id %></td>
-                                <td><%= item.nome %></td>
+                                <td><%= cliente.nome %></td>
+                                <td><%= cliente.cpf %></td>
+                                <td><%= cliente.endereco %></td>
+                                <td><a style="color: orange;" href="/cliente/edit/<%= cliente.id %>">Editar</a></td>
+                                <td><a style="color: red;" href="/cliente/delete/<%= cliente.id %>">Excluir</a></td>
                             <tr>
                             <% }) %>
                     </tbody>

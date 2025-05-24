@@ -25,6 +25,12 @@ app.get("/", (req,res) => {
     res.render("index");
 });
 
+//Permitindo dados vindo de formularios
+app.use(express.urlencoded({extended: false }))
+app.use(express.json())
+
+
+
 //Configurando o Express para utilizar as rotas dos Controllers
 app.use("/", produtoscontroller);
 app.use("/cliente", clientecontroller);
@@ -39,3 +45,27 @@ app.listen(8081, function(error){
         console.log("Servidor iniciado com sucesso");
     }
 })
+
+import connection from "./config/sequelize-config.js";
+
+connection.authenticate().then(() =>{
+    console.log("Conexão com o banco de dados feita com sucesso!")
+}).catch((error)=> {
+    console.log(error)
+})
+
+//Criando banco de dados
+connection.query(`CREATE DATABASE IF NOT EXISTS
+    loja;`).then(() => {
+        console.log("O banco de dados está criado.")
+    }).catch((error) => {
+        console.log(error)
+    })
+
+
+    import Cliente from "./models/clientes.js"
+
+
+
+    
+    
